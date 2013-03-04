@@ -1,7 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>PGSnap - Reports</title>
-  <style type="text/css" media="screen" title="Normal Text">@import url("fixed.css");</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PostgreSQL Activity Snapshot">
+  <meta name="generator" content="pgSnap !">
+  <meta name="author" content="Guillaume Lelarge">
+
+  <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+  <link href="bootstrap-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="html5shiv.js"></script>
+  <![endif]-->
+
   <script type="text/javascript" src="jquery-1.2.3.js"></script>
   <script type="text/javascript" src="jquery.tablesorter.js"></script>
   <script type="text/javascript">
@@ -37,52 +69,32 @@
   </script>
 </head>
 <body>
-   <div id="pgContainerWrap">
-    <div id="pgContainer">
-      <span class="txtOffScreen"><a href="#pgContent" title="Skip site navigation" accesskey="1">Skip site navigation</a> (1)</span>
-      <span class="txtOffScreen"><a href="#pgContentWrap" title="Skip section navigation" accesskey="2">Skip section navigation</a> (2)</span>
-      <div id="pgHeaderContainer">
-        <div id="pgHeader">
-	  <h2 class="pgBlockHide">Header And Logo</h2>
-          <div id="pgHeaderLogoLeft">
-            <a href="/" title="PostgreSQL"><img src="hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
-          </div>
-          <div id="pgHeaderLogoRight">
-            <span class="txtOffScreen">|</span>
-            <a href="/" title="The world's most advanced open source database."><img src="hdr_right.png" width="210" height="80" alt="The world's most advanced open source database." /></a>
-          </div>
-        </div>
-  	<h2 class="pgBlockHide">Site Navigation</h2>
-        <div id="pgTopNav">
-          <div id="pgTopNavLeft">
-            <img src="nav_lft.png" width="7" height="23" alt="" />
-          </div>
-          <div id="pgTopNavRight">
-            <img src="nav_rgt.png" width="7" height="23" alt="" />
-          </div>
-          <ul id="pgTopNavList">
-  <li>
-    <a href="index.html" title="Home">Home</a>
-  </li>
-  <li>
-    <a href="ver.html" title="General">General</a>
-  </li>
-  <li>
 
-    <a href="bases.html" title="Global Objects">Global Objects</a>
-  </li>
-  <li>
-    <a href="schemas.html" title="Databases Objects">Databases Objects</a>
-  </li>
-  <li>
-    <a href="sessionsinfo.html" title="Activities">Activities</a>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+     <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">pgSnap !</a>
+        <div class="nav-collapse collapse">
+           <p class="navbar-text pull-right">
+             <a href="#" class="navbar-link">About</a>
+           </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="ver.html" title="General">General</a></li>
+              <li><a href="bases.html" title="Global Objects">Global Objects</a></li>
+              <li><a href="schemas.html" title="Databases Objects">Databases Objects</a></li>
+              <li><a href="sessionsinfo.html" title="Activities">Activities</a></li>
+              <li><a href="sessionsinfo.html" title="Activities">Activities</a></li>
+              <li><a href="stat_databases.html" title="Statistics">Statistics</a></li>  
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/ container-fluid -->
+   </div><!--/ navbar-inner--> 
+</div><!--/ navbar -->
 
-  </li>
-  <li>
-    <a href="stat_databases.html" title="Statistics">Statistics</a>
-  </li>
-</ul>
-
-        </div>
-      </div>
-      <div id="pgContent">
+<div class="container-fluid">
