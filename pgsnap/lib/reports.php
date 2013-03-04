@@ -91,6 +91,17 @@ copy($PGSNAP_ROOT_PATH.'external/jquery-1.2.3.js',
      $outputdir.'/jquery-1.2.3.js');
 copy($PGSNAP_ROOT_PATH.'external/jquery.tablesorter.js',
      $outputdir.'/jquery.tablesorter.js');
+
+// bootstrap
+$BOOTSTRAP_PATH=$PGSNAP_ROOT_PATH.'external/bootstrap/';
+copy($BOOTSTRAP_PATH.'css/bootstrap.css',$outputdir.'/bootstrap.css');
+copy($BOOTSTRAP_PATH.'css/bootstrap-responsive.css',$outputdir.'/bootstrap-responsive.css');
+copy($BOOTSTRAP_PATH.'js/bootstrap.js',$outputdir.'/bootstrap.js');
+
+// html5shiv
+$HTML5SHIV_PATH=$PGSNAP_ROOT_PATH.'external/html5shiv/';
+copy($HTML5SHIV_PATH.'html5shiv.js',$outputdir.'/html5shiv.js');
+
 // css
 copy($PGSNAP_ROOT_PATH.'template/fixed.css', $outputdir.'/fixed.css');
 copy($PGSNAP_ROOT_PATH.'template/global.css', $outputdir.'/global.css');
