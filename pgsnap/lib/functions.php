@@ -103,7 +103,7 @@ $buffer = $navigate_dbobjects.'
 
 <button class="btn btn-info btn-large" id="showthesource">Show SQL commands!</button>
 <div id="source">
-<p>'.$query.'</p>
+<pre>'.$query.'</pre>
 </div>
 </div>
 
