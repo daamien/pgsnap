@@ -16,8 +16,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-$buffer = $navigate_dbobjects.'
-<div id="pgContentWrap">
+
+/*$buffer = $navigate_dbobjects.'
+<div class="span9">
 
 <h1>Functions</h1>
 ';
@@ -25,7 +26,7 @@ $buffer = $navigate_dbobjects.'
 if(!$g_withoutsysobjects) {
   add_sys_and_user_checkboxes();
 }
-
+*/
 $query = "SELECT n.nspname,
   p.proname,
   CASE WHEN p.proretset THEN 'setof '
@@ -97,9 +98,29 @@ if (!$rows) {
   exit;
 }
 
-$buffer .= '<div class="tblBasic">
 
-<table id="myTable" border="0" cellpadding="0" cellspacing="0" class="tblBasicGrey">
+$buffer = $navigate_dbobjects.'
+
+<button class="btn btn-info btn-large" id="showthesource">Show SQL commands!</button>
+<div id="source">
+<p>'.$query.'</p>
+</div>
+</div>
+
+<div class="span9">
+
+<h1>Functions</h1>
+';
+
+if(!$g_withoutsysobjects) {
+  add_sys_and_user_checkboxes();
+}
+
+
+
+$buffer .= '
+
+<table id="myTable" class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
   <th class="colFirst">Owner</th>
@@ -146,7 +167,6 @@ $buffer .= "
 
 $buffer .= '</tbody>
 </table>
-</div>
 ';
 
 $buffer .= '<button id="showthesource">Show SQL commands!</button>

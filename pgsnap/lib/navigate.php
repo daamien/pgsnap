@@ -52,7 +52,6 @@ if ($g_superuser && $g_version > '74'
 
 $navigate_general .= '
     </ul>
-  </div>
 ';
 
 
@@ -101,7 +100,6 @@ if ($g_version > '80') {
 }
 $navigate_globalobjects.= '
     </ul>
-</div>
 ';
 
 $navigate_dbobjects = $navigate_header.'
@@ -174,7 +172,6 @@ if ($g_version >= '91') {
 
 $navigate_dbobjects.= '
     </ul>
-  </div>
 ';
 
 $navigate_activities = $navigate_header.'
@@ -204,7 +201,6 @@ if ($g_version < '90') {
 }
 $navigate_activities .= '
     </ul>
-</div>
 ';
 
 $navigate_stats = $navigate_header.'
@@ -253,7 +249,6 @@ if ($g_version >= '84') {
 }
 $navigate_stats .= '
     </ul>
-</div>
 ';
 
 $navigate_tools = $navigate_header.'<h2>Other tools</h2>
@@ -266,7 +261,6 @@ if ($g_pgpool) {
 
 $navigate_tools .= '
     </ul>
-  </div>
 ';
 
 ?>
