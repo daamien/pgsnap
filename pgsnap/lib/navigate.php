@@ -18,22 +18,23 @@
 
 // General Side Nav
 
-$navigate_header = '<div id="pgSideWrap">
-  <div id="pgSideNav">
-    <h2 class="pgBlockHide">Section Navigation</h2>
+$navigate_header = '
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+    <h2>Section Navigation</h2>
 ';
 
 $navigate_general = $navigate_header.'
-    <ul>
-      <li><a href="ver.html">Installed products</a></li>
-      <li><a href="pgconfig.html">pg_config</a></li>
-      <li><a href="pgcontroldata.html">pg_controldata</a></li>
-      <li><a href="param.html">General configuration</a></li>
-      <li><a href="nondefaultparam.html">Non Default configuration</a></li>';
+    <ul class="nav nav-list bs-docs-sidenav">
+      <li><a href="ver.html"><i class="icon-chevron-right"></i>Installed products</a></li>
+      <li><a href="pgconfig.html"><i class="icon-chevron-right"></i>pg_config</a></li>
+      <li><a href="pgcontroldata.html"><i class="icon-chevron-right"></i>pg_controldata</a></li>
+      <li><a href="param.html"><i class="icon-chevron-right"></i>General configuration</a></li>
+      <li><a href="nondefaultparam.html"><i class="icon-chevron-right"></i>Non Default configuration</a></li>';
 
 if ($g_version > '80' && $g_version < '84') {
   $navigate_general .= '
-      <li><a href="paramautovac.html">Autovacuum configuration</a></li>';
+      <li><a href="paramautovac.html"><i class="icon-chevron-right"></i>Autovacuum configuration</a></li>';
 }
 
 if ($g_superuser && $g_version > '74'
@@ -45,24 +46,23 @@ if ($g_superuser && $g_version > '74'
            && !strcmp($g_settings['logging_collector'], 'on'))) ) {
 
   $navigate_general .= '
-      <li class="last-child"><a href="lastlogfile.html">Last log file</a></li>';
+      <li class="last-child"><a href="lastlogfile.html"><i class="icon-chevron-right"></i>Last log file</a></li>';
 
 }
 
 $navigate_general .= '
     </ul>
   </div>
-</div>
 ';
 
 
 $navigate_globalobjects = $navigate_header.'
-    <ul>
-      <li><a href="bases.html">Databases</a></li>';
+    <ul class="nav nav-list bs-docs-sidenav">
+      <li><a href="bases.html"><i class="icon-chevron-right"></i>Databases</a></li>';
 
 if ($g_flashexists && $g_version > '80') {
   $navigate_globalobjects .= '
-      <li><a href="graph_dbsize.html">Databases Size Graph</a></li>';
+      <li><a href="graph_dbsize.html"><i class="icon-chevron-right"></i>Databases Size Graph</a></li>';
 }
 if ($g_pgbuffercache) {
   $navigate_globalobjects .= '
@@ -101,12 +101,11 @@ if ($g_version > '80') {
 }
 $navigate_globalobjects.= '
     </ul>
-  </div>
 </div>
 ';
 
 $navigate_dbobjects = $navigate_header.'
-    <ul>
+    <ul  class="nav nav-list bs-docs-sidenav">
       <li><a href="schemas.html">Schemas</a></li>';
 if ($g_version >= '90') {
   $navigate_dbobjects.= '
@@ -176,11 +175,10 @@ if ($g_version >= '91') {
 $navigate_dbobjects.= '
     </ul>
   </div>
-</div>
 ';
 
 $navigate_activities = $navigate_header.'
-    <ul>
+    <ul  class="nav nav-list bs-docs-sidenav">
       <li><a href="sessionsinfo.html">Sessions</a></li>
       <li><a href="activities.html">Processes</a></li>
       <li><a href="nonidleprocesses.html">Non Idle Processes</a></li>';
@@ -206,12 +204,11 @@ if ($g_version < '90') {
 }
 $navigate_activities .= '
     </ul>
-  </div>
 </div>
 ';
 
 $navigate_stats = $navigate_header.'
-    <ul>';
+    <ul  class="nav nav-list bs-docs-sidenav">';
 if ($g_version >= '83') {
   $navigate_stats .= '
       <li><a href="bgwriter.html">bgwriter</a></li>';
@@ -256,12 +253,11 @@ if ($g_version >= '84') {
 }
 $navigate_stats .= '
     </ul>
-  </div>
 </div>
 ';
 
 $navigate_tools = $navigate_header.'<h2>Other tools</h2>
-<ul>';
+<ul  class="nav nav-list bs-docs-sidenav">';
 
 if ($g_pgpool) {
   $navigate_tools .= '
@@ -271,7 +267,6 @@ if ($g_pgpool) {
 $navigate_tools .= '
     </ul>
   </div>
-</div>
 ';
 
 ?>
