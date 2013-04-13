@@ -86,9 +86,10 @@ if (!$queriesinlogs && $g_superuser) {
 }
 
 echo "Adding some HTML files...\n";
-// javascript
-copy($PGSNAP_ROOT_PATH.'external/jquery-1.2.3.js',
-     $outputdir.'/jquery-1.2.3.js');
+// jquery
+copy($PGSNAP_ROOT_PATH.'external/jquery/jquery.js',
+     $outputdir.'/jquery.js');
+// TODO : check if tablesorter is still needed
 copy($PGSNAP_ROOT_PATH.'external/jquery.tablesorter.js',
      $outputdir.'/jquery.tablesorter.js');
 

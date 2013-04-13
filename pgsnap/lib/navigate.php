@@ -20,7 +20,7 @@
 
 $navigate_header = '
     <div class="row">
-      <div class="span3 bs-docs-sidebar">
+      <div class="span3 bs-docs-sidebar" data-spy="affix" data-offset-top="200">
     <h2>Section Navigation</h2>
 ';
 
@@ -162,7 +162,7 @@ if ($g_version > '80') {
 }
 
 $navigate_dbobjects.= '
-      <li><a href="functions.html">Functions</a></li>
+      <li class="active"><a href="functions.html">Functions</a></li>
       <li class="last-child"><a href="languages.html">Languages</a></li>';
 
 if ($g_version >= '91') {

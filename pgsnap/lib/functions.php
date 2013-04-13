@@ -101,10 +101,9 @@ if (!$rows) {
 
 $buffer = $navigate_dbobjects.'
 
-<button class="btn btn-info btn-large" id="showthesource">Show SQL commands!</button>
-<div id="source">
-<pre>'.$query.'</pre>
-</div>
+<a href="#" class="btn btn-info btn-large" title="SQL query" 
+data-toggle="popover" data-placement="right" data-content="'.$query.'"
+>Show the SQL query!</a>
 </div>
 
 <div class="span9">
@@ -168,12 +167,12 @@ $buffer .= "
 $buffer .= '</tbody>
 </table>
 ';
-
+/*
 $buffer .= '<button id="showthesource">Show SQL commands!</button>
 <div id="source">
 <p>'.$query.'</p>
 </div>';
-
+*/
 $filename = $outputdir.'/functions.html';
 include 'lib/fileoperations.php';
 

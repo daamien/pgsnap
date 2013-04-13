@@ -34,39 +34,15 @@
     <script src="html5shiv.js"></script>
   <![endif]-->
 
-  <script type="text/javascript" src="jquery-1.2.3.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="jquery.tablesorter.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $("#myTable").tablesorter(); 
-    $("#source").hide();                   
-    $("button#showthesource").toggle(function(){
-      $("button#showthesource").text('Hide SQL commands!');
-      $("#source").show();
-    },function(){
-      $("button#showthesource").text('Show SQL commands!');
-      $("#source").hide();
-    });
-    $("input#showusrobjects").click(function() {
-      if($(this).attr("checked")) {
-        $(".usr_odd").show();
-        $(".usr").show();
-      } else {
-        $(".usr_odd").hide();
-        $(".usr").hide();
-      }
-    });
-    $("input#showsysobjects").click(function() {
-      if($(this).attr("checked")) {
-        $(".sys_odd").show();
-        $(".sys").show();
-      } else {
-        $(".sys_odd").hide();
-        $(".sys").hide();
-      }
-    });
-  });
-  </script>
+  <script type="text/javascript" src="bootstrap.js"></script>
+
+ <script type="text/javascript">
+$(function () { 
+$('a[data-toggle=popover]').popover();
+});
+</script>
 </head>
 <body>
 

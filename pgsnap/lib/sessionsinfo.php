@@ -93,6 +93,27 @@ $buffer .= '<button id="showthesource">Show SQL commands!</button>
 <p>'.$queries.'</p>
 </div>';
 
+$buffer .= '
+<a href="#" class="btn btn-info btn-large"  
+data-toggle="popover" data-placement="right" data-content="'.$query.'"
+>Show SQL commands!</a>
+';
+
+
+$buffer .= '
+        <h4>Four directions</h4>
+        <div class="bs-docs-example tooltip-demo">
+          <ul class="bs-docs-tooltip-examples">
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on top">Popover on top</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on right">Popover on right</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on bottom">Popover on bottom</a></li>
+            <li><a href="#" class="btn" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." title="Popover on left">Popover on left</a></li>
+          </ul>
+        </div>
+
+';
+
+
 $filename = $outputdir.'/sessionsinfo.html';
 include 'lib/fileoperations.php';
 
