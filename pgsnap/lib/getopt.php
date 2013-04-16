@@ -42,6 +42,7 @@ $g_witholdlibpq = false;
 $outputdir = '';
 $outputdirmode = 700;
 $queriesinlogs = false;
+$template = 'default';
 
 for ($i = 1; $i < $_SERVER["argc"]; $i++) {
   switch($_SERVER["argv"][$i]) {
@@ -103,6 +104,10 @@ for ($i = 1; $i < $_SERVER["argc"]; $i++) {
     case "--query-in-logs":
       $queriesinlogs = true;
       break;
+    case "-t":
+    case "--template":
+      $template = $_SERVER['argv'][++$i];
+      break;
     case "-?":
     case "-h":
     case "--help":
@@ -127,6 +132,7 @@ General options:
                   get report without system objects informations
   --delete-if-exists
                   delete output directory if it already exists
+  -t, --template  specify the CSS theme for the report
   --help          show this help, then exit
   --version       output version information, then exit
 

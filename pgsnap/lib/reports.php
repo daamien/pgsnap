@@ -91,7 +91,8 @@ echo "Adding some HTML files...\n";
 $BOOTSTRAP_PATH=$PGSNAP_ROOT_PATH.'external/bootstrap/';
 mkdir($outputdir.'/css/', octdec($outputdirmode), true);
 
-copy($BOOTSTRAP_PATH.'css/bootstrap.css',$outputdir.'/css/bootstrap.css');
+$CSS_THEME_FILE = $BOOTSTRAP_PATH.'css/bootstrap.'.$template.'.css';
+copy($CSS_THEME_FILE,$outputdir.'/css/bootstrap.css');
 copy($BOOTSTRAP_PATH.'css/bootstrap-responsive.css',$outputdir.'/css/bootstrap-responsive.css');
 
 // js (bootstap + jquery)

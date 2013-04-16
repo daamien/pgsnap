@@ -98,18 +98,33 @@ if (!$rows) {
   exit;
 }
 
+ 
+
 
 $buffer = $navigate_dbobjects.'
-
-<a href="#" class="btn btn-info btn-large" title="SQL query" 
-data-toggle="popover" data-placement="right" data-content="'.$query.'"
->Show the SQL query!</a>
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Show me the Query !</a>
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">System Query</h3>
+  </div>
+  <div class="modal-body">
+    <p>'.$query.'</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>
+';
 
+$buffer .= '
 <div class="span9">
 
 <h1>Functions</h1>
 ';
+
 
 if(!$g_withoutsysobjects) {
   add_sys_and_user_checkboxes();
