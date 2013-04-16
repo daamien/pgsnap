@@ -86,24 +86,40 @@ if (!$queriesinlogs && $g_superuser) {
 }
 
 echo "Adding some HTML files...\n";
-// jquery
-copy($PGSNAP_ROOT_PATH.'external/jquery/jquery.js',
-     $outputdir.'/jquery.js');
-// TODO : check if tablesorter is still needed
-copy($PGSNAP_ROOT_PATH.'external/jquery.tablesorter.js',
-     $outputdir.'/jquery.tablesorter.js');
 
 // bootstrap
 $BOOTSTRAP_PATH=$PGSNAP_ROOT_PATH.'external/bootstrap/';
-copy($BOOTSTRAP_PATH.'css/bootstrap.css',$outputdir.'/bootstrap.css');
-copy($BOOTSTRAP_PATH.'css/bootstrap-responsive.css',$outputdir.'/bootstrap-responsive.css');
-copy($BOOTSTRAP_PATH.'js/bootstrap.js',$outputdir.'/bootstrap.js');
+mkdir($outputdir.'/css/', octdec($outputdirmode), true);
+
+copy($BOOTSTRAP_PATH.'css/bootstrap.css',$outputdir.'/css/bootstrap.css');
+copy($BOOTSTRAP_PATH.'css/bootstrap-responsive.css',$outputdir.'/css/bootstrap-responsive.css');
+
+// js (bootstap + jquery)
+mkdir($outputdir.'/js/', octdec($outputdirmode), true);
+
+copy($PGSNAP_ROOT_PATH.'external/jquery/jquery.js',
+     $outputdir.'/js/jquery.js');
+// TODO : check if tablesorter is still needed
+copy($PGSNAP_ROOT_PATH.'external/jquery.tablesorter.js',
+     $outputdir.'/js/jquery.tablesorter.js');
+
+copy($BOOTSTRAP_PATH.'js/bootstrap.js',$outputdir.'/js/bootstrap.js');
 
 // html5shiv
 $HTML5SHIV_PATH=$PGSNAP_ROOT_PATH.'external/html5shiv/';
-copy($HTML5SHIV_PATH.'html5shiv.js',$outputdir.'/html5shiv.js');
+copy($HTML5SHIV_PATH.'html5shiv.js',$outputdir.'/js/html5shiv.js');
+
+
+// images
+mkdir($outputdir.'/img/', octdec($outputdirmode), true);
+copy($BOOTSTRAP_PATH.'img/glyphicons-halflings.png',
+     $outputdir.'/img/glyphicons-halflings.png');
+copy($BOOTSTRAP_PATH.'img/glyphicons-halflings-white.png',
+     $outputdir.'/img/glyphicons-halflings-white.png');
+	
 
 // css
+/*
 copy($PGSNAP_ROOT_PATH.'template/fixed.css', $outputdir.'/fixed.css');
 copy($PGSNAP_ROOT_PATH.'template/global.css', $outputdir.'/global.css');
 copy($PGSNAP_ROOT_PATH.'template/layout.css', $outputdir.'/layout.css');
@@ -111,7 +127,9 @@ copy($PGSNAP_ROOT_PATH.'template/text.css', $outputdir.'/text.css');
 copy($PGSNAP_ROOT_PATH.'template/navigation.css', $outputdir.'/navigation.css');
 copy($PGSNAP_ROOT_PATH.'template/table.css', $outputdir.'/table.css');
 copy($PGSNAP_ROOT_PATH.'template/iefixes.css', $outputdir.'/iefixes.css');
+*/
 // png
+/*
 copy($PGSNAP_ROOT_PATH.'images/check-off.png', $outputdir.'/check-off.png');
 copy($PGSNAP_ROOT_PATH.'images/check-on.png', $outputdir.'/check-on.png');
 copy($PGSNAP_ROOT_PATH.'images/danger.png', $outputdir.'/danger.png');
@@ -142,6 +160,8 @@ copy($PGSNAP_ROOT_PATH.'images/usr_tbl_btm.png', $outputdir.'/usr_tbl_btm.png');
 copy($PGSNAP_ROOT_PATH.'images/usr_tbl_top.png', $outputdir.'/usr_tbl_top.png');
 copy($PGSNAP_ROOT_PATH.'images/nav_lft.png', $outputdir.'/nav_lft.png');
 copy($PGSNAP_ROOT_PATH.'images/nav_rgt.png', $outputdir.'/nav_rgt.png');
+*/
+
 // flash stuff
 if (file_exists('external/open-flash-chart.swf')
     && file_exists('external/swfobject.js')) {
