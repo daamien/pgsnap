@@ -32,6 +32,7 @@ function add_sys_and_user_checkboxes() {
 
   $buffer .= '<label><input id ="showusrobjects" type="checkbox" checked>Show User Objects</label>
 <label><input id ="showsysobjects" type="checkbox" checked>Show System Objects</label>';
+
 }
 
 function pretty_size($bytes, $rounded = false) {
@@ -52,4 +53,37 @@ function pretty_size($bytes, $rounded = false) {
 
   return $bytes;
 }
+
+
+/**
+ * Create a Bootstrap modal window
+ *
+ * @param string $query the message to display
+ * 
+ * @return string the modal
+ */
+ 
+function bootstrap_query_modal($query){
+
+   $r ='';
+   $r.='<div class="affix" style="top:250 px;">';
+   $r.='<a href="#myModal" role="button" class="btn" data-toggle="modal">Show me the Query !</a>';
+   $r.='</div>';
+   $r.='<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
+   $r.='<div class="modal-header">';
+   $r.='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
+   $r.='<h3 id="myModalLabel">System Query</h3>';
+   $r.='</div>';
+   $r.='<div class="modal-body">';
+   $r.='<p>'.$query.'</p>';
+   $r.='</div>';
+   $r.='<div class="modal-footer">';
+   $r.='<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>';
+   $r.='</div>';
+   $r.='</div>';
+
+	
+   return $r;
+}
+
 ?>

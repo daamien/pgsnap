@@ -16,10 +16,6 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-$buffer = $navigate_globalobjects.'
-<div id="pgContentWrap">
-
-<h1>Databases</h1>';
 
 $query = 'SELECT datname,
   pg_get_userbyid(datdba) AS dba,
@@ -81,47 +77,64 @@ if (!$rows) {
   exit;
 }
 
-$buffer .= '<div class="tblBasic">
 
-<table id="myTable" border="0" cellpadding="0" cellspacing="0" class="tblBasicGrey">
+// Menu
+$buffer = $navigate_globalobjects;
+
+// button : Show me the Query !
+$buffer .= bootstrap_query_modal($query);
+
+// close the row 
+$buffer .= '</div> <!-- /row -->';
+
+// content
+$buffer .= '
+<div class="span9">
+<h1>Databases</h1>
+';
+
+
+
+$buffer .= '
+<table class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
-  <th class="colFirst" width="200">DB Owner</th>
-  <th class="colMid" width="200">DB Name</th>
-  <th class="colMid" width="200">Encoding</th>';
+  <th>DB Owner</th>
+  <th>DB Name</th>
+  <th>Encoding</th>';
 if ($g_version > 83) {
   $buffer .= '
-  <th class="colMid" width="100">Collation</th>
-  <th class="colMid" width="100">CType</th>';
+  <th>Collation</th>
+  <th>CType</th>';
 }
 $buffer .= '
-  <th class="colMid" width="100">Template?</th>
-  <th class="colMid" width="100">Allow connections?</th>';
+  <th>Template?</th>
+  <th>Allow connections?</th>';
 if ($g_version > 80) {
   $buffer .= '
-  <th class="colMid" width="100">Connection limits</th>';
+  <th>Connection limits</th>';
 }
 $buffer .= '
-  <th class="colMid" width="100">Last system OID</th>
-  <th class="colMid" width="100">Frozen XID</th>';
+  <th>Last system OID</th>
+  <th>Frozen XID</th>';
 if ($g_version > 74) {
   $buffer .= '
-  <th class="colMid" width="200">Tablespace name</th>';
+  <th>Tablespace name</th>';
 }
 if ($g_version > 80) {
   $buffer .= '
-  <th class="colMid" width="200">Size</th>';
+  <th>Size</th>';
 }
 if ($g_version > 81) {
   $buffer .= '
-  <th class="colMid" width="200">Auto Freeze</th>';
+  <th>Auto Freeze</th>';
 }
 if ($g_version < 90) {
   $buffer .= '
-  <th class="colMid" width="200">Configuration</th>';
+  <th>Configuration</th>';
 }
 $buffer .= '
-  <th class="colLast" width="300"><acronym title="Access Control List">ACL</acronym></th>
+  <th><acronym title="Access Control List">ACL</acronym></th>
 </tr>
 </thead>
 <tbody>';
@@ -136,9 +149,13 @@ if ($g_version > 83) {
   <td>'.$row['datcollate'].'</td>
   <td>'.$row['datctype'].'</td>';
 }
-$buffer .= '
-  <td>'.$image[$row['datistemplate']].'</td>
-  <td>'.$image[$row['datallowconn']].'</td>';
+
+$icon=($row['datistemplate'] ? 'icon-ok' : 'icon-remove');
+$buffer .= '  <td><i class="'.$icon.'"></i></td>';
+
+$icon=($row['datallowconn'] ? 'icon-ok' : 'icon-remove');
+$buffer .= '  <td><i class="'.$icon.'"></i></td>';
+
 if ($g_version > 80) {
   $buffer .= '
   <td>'.$row['datconnlimit'].'</td>';
@@ -171,10 +188,6 @@ $buffer .= '</tbody>
 </div>
 ';
 
-$buffer .= '<button id="showthesource">Show SQL commands!</button>
-<div id="source">
-<p>'.$query.'</p>
-</div>';
 
 $filename = $outputdir.'/bases.html';
 include 'lib/fileoperations.php';

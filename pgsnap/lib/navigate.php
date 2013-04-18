@@ -20,8 +20,7 @@
 
 $navigate_header = '
     <div class="row">
-      <div class="span3 bs-docs-sidebar" data-spy="affix" data-offset-top="200">
-    <h2>Section Navigation</h2>
+      <div class="span3 bs-docs-sidebar">
 ';
 
 $navigate_general = $navigate_header.'
@@ -54,10 +53,11 @@ $navigate_general .= '
     </ul>
 ';
 
+/******************************************************/
 
 $navigate_globalobjects = $navigate_header.'
-    <ul class="nav nav-list bs-docs-sidenav">
-      <li><a href="bases.html"><i class="icon-chevron-right"></i>Databases</a></li>';
+    <ul class="nav nav-list bs-docs-sidenav affix">
+      <li class="active"><a href="bases.html"><i class="icon-chevron-right"></i> Databases</a></li>';
 
 if ($g_flashexists && $g_version > '80') {
   $navigate_globalobjects .= '
@@ -65,38 +65,37 @@ if ($g_flashexists && $g_version > '80') {
 }
 if ($g_pgbuffercache) {
   $navigate_globalobjects .= '
-      <li><a href="databasesincache.html">Databases in cache</a></li>';
+      <li><a href="databasesincache.html"><i class="icon-chevron-right"></i> Databases in cache</a></li>';
 }
 if ($g_version > '80') {
   $navigate_globalobjects.= '
-      <li><a href="roles.html">Roles</a></li>';
+      <li><a href="roles.html"><i class="icon-chevron-right"></i> Roles</a></li>';
 } else {
   $navigate_globalobjects.= '
-      <li><a href="users.html">Users</a></li>';
+      <li><a href="users.html"><i class="icon-chevron-right"></i> Users</a></li>';
 }
 $navigate_globalobjects.= '
-      <li><a href="user1.html">Users\' Objects</a></li>
-      <li><a href="user2.html">Users Space allocated</a></li>';
+      <li><a href="user1.html"><i class="icon-chevron-right"></i> Users\' Objects</a></li>
+      <li><a href="user2.html"><i class="icon-chevron-right"></i> Users Space allocated</a></li>';
 if ($g_version >= '90') {
   $navigate_globalobjects.= '
-      <li><a href="dbrolesettings.html">DB/Role Settings</a></li>';
+      <li><a href="dbrolesettings.html"><i class="icon-chevron-right"></i> DB/Role Settings</a></li>';
 }
 if ($g_version > '74') {
   $navigate_globalobjects.= '
-      <li><a href="tablespaces.html">Tablespaces</a></li>';
+      <li><a href="tablespaces.html"><i class="icon-chevron-right"></i> Tablespaces</a></li>';
   if ($g_superuser && $g_flashexists && $g_version > '80') {
     $navigate_globalobjects .= '
-      <li><a href="graph_tblspcsize.html">Tablespaces Size Graph</a></li>';
+      <li><a href="graph_tblspcsize.html"><i class="icon-chevron-right"></i> Tablespaces Size Graph</a></li>';
   }
   $navigate_globalobjects.= '
-      <li><a href="tblspc1.html">Tablespaces\' objects</a></li>';
+      <li><a href="tblspc1.html"><i class="icon-chevron-right"></i> Tablespaces\' objects</a></li>';
 }
 $navigate_globalobjects.= '
-      <li><a href="largeobjects.html">Large
-      Objects</a></li>';
+      <li><a href="largeobjects.html"><i class="icon-chevron-right"></i> Large Objects</a></li>';
 if ($g_version > '80') {
   $navigate_globalobjects.= '
-      <li class="last-child"><a href="xlog.html">WAL files</a></li>';
+      <li><a href="xlog.html"><i class="icon-chevron-right"></i> WAL files</a></li>';
 }
 $navigate_globalobjects.= '
     </ul>

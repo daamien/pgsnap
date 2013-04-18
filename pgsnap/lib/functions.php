@@ -119,6 +119,13 @@ $buffer = $navigate_dbobjects.'
 </div>
 ';
 
+
+// close the row 
+$buffer .= '
+</div> <!-- /row --> 
+';
+
+
 $buffer .= '
 <div class="span9">
 
